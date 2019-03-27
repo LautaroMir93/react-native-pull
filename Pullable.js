@@ -49,7 +49,6 @@ export default class extends Component {
         });
 
         this.gesturePosition = { x: 0, y: 0 };
-        this.onScroll = this.onScroll.bind(this);
         this.onLayout = this.onLayout.bind(this);
         this.isPullState = this.isPullState.bind(this);
         this.resetDefaultXYHandler = this.resetDefaultXYHandler.bind(this);
@@ -138,18 +137,6 @@ export default class extends Component {
                 easing: Easing.linear,
                 duration: this.duration
             }).start();
-        }
-    }
-
-    onScroll(e) {
-        if (e.nativeEvent.contentOffset.y <= 0) {
-            this.setState({
-                scrollEnabled: this.defaultScrollEnabled,
-            });
-        } else if (!this.isPullState()) {
-            this.setState({
-                scrollEnabled: true,
-            });
         }
     }
 
